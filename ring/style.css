@@ -1,0 +1,75 @@
+body {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1000px; /* Agregamos perspectiva 3D */
+}
+
+.loader {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d; /* Activar efecto 3D */
+    animation: rotateLoader 20s linear infinite;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid transparent;
+    border-top-color: var(--color);
+    animation: spin var(--duration) linear infinite;
+    box-shadow: 0 0 30px var(--color), 0 0 60px var(--color), 0 0 90px var(--color);
+}
+
+/* Anillos de diferentes tamaños y animaciones */
+.ring-1 {
+    width: 200px;
+    height: 200px;
+    --color: orange;
+    --duration: 2s;
+    transform: translate(-50%, -50%) rotateX(45deg);
+}
+
+.ring-2 {
+    width: 300px;
+    height: 300px;
+    --color: cyan;
+    --duration: 3s;
+    transform: translate(-50%, -50%) rotateY(60deg);
+    animation-direction: reverse;
+}
+
+.ring-3 {
+    width: 400px;
+    height: 400px;
+    --color: lime;
+    --duration: 4s;
+    transform: translate(-50%, -50%) rotateX(30deg);
+}
+
+.ring-4 {
+    width: 500px;
+    height: 500px;
+    --color: magenta;
+    --duration: 5s;
+    transform: translate(-50%, -50%) rotateY(45deg);
+    animation-direction: reverse;
+}
+
+/* Animación de giro de cada anillo */
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
